@@ -1,0 +1,104 @@
+<!doctype html>
+<!--
+File: index.html
+Name: Jason Yang
+Student Number: 400567902
+Date: 02/15/2025
+Description: This file contains the structure for the Memory Tile game interface, including the intro screen, help screen, game UI, and game over screen.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Tile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <!-- Intro Screen -->
+    <div id="introScreen">
+        <h1>Welcome to Memory Tile!</h1>
+        <p>Please fill in your details to get started</p>
+
+        <form id="introForm">
+            <input type="text" id="playerName" placeholder="Enter Your Name" autofocus>
+            <input type="number" id="playerAge" placeholder="Enter Your Age" min="1">
+
+            <div class="colorPicker">
+                <span>Favorite Color:</span>
+                <input type="color" id="playerColor" value="#000000">    
+            </div>
+
+            <div class="button_container">
+                <button type="submit" id="startButton" disabled>Start Game!</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Help Screen -->
+    <div id="helpScreen" style="display: none;">
+        <div id="helpScreenText">
+            <h1>How to Play</h1>
+            <hr class="seperator">
+            <div class="help">
+                <p>1. A few tiles will flash briefly</p>
+                <p>2. Click on the tiles that flashed</p>
+                <p>3. If you get them all correct, you move on to the next level</p>
+                <p>4. If you click the wrong tile, you lose a life</p>
+                <p>5. You have 3 lives, try to reach the highest level possible</p><br>
+            </div>
+    
+            <br>
+    
+            <h1>Game Difficulty</h1>
+            <hr class="seperator">
+            <div class="help">
+                <p>As you progress, the game will become more challenging</p>
+                <p>The grid will expand, and the number of flashing tiles will increase</p>
+                <p>Stay focused, test your memory, and have fun!</p>
+            </div>    
+        </div>
+        
+        <button id="backButton">Back</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" style="display: none;">
+
+        <!-- Player Info -->
+        <div id="playerInfo">
+            <p id="playerNameDisplay">Name: </p>
+            <p id="playerAgeDisplay">Age: </p>
+        </div>
+
+        <!-- Game Info -->
+         <div class="gameInfoContainer">
+            <div class="gameInfo">
+                <strong>Lives:</strong> <span id="lives">3</span>
+            </div>
+            <div class="gameInfo">
+                <strong>Level:</strong> <span id="level">1</span>
+            </div>
+         </div>
+
+        <div id="gameBoard"></div>
+        <button type="button" id="helpButton" style="display: none;">Help</button>
+        <button id="restartButton">Restart Game</button>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" style="display: none;">
+        <h1 id="winMessage"></h1>
+        <p id="gameOverMessage"></p>
+        <p id="levelReached"></p>
+        <p id="livesLeft"></p>
+        <br>
+        <p id="finalMessage"></p>
+        <button id="playAgain">Play Again!</button>
+    </div>
+
+</body>
+
+</html>

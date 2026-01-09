@@ -1,0 +1,302 @@
+/**
+ * Memory Tile Game
+ * 
+ * @file css/style.css
+ * @author Jason Yang
+ * @student_number 400567902
+ * @date 02/16/2025
+ * @description This file contains the layout, animations, and styles for the Memory Tile game.
+ */
+
+ html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    text-align: center;
+    background: #2d3e50;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#playerInfo {
+    margin: 20px auto;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    max-width: 400px;
+}
+
+#playerInfo p {
+    margin: 5px 0;
+}
+
+.gameInfoContainer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.gameInfo {
+    background-color: #d27f7f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#introScreen, #gameScreen, #gameOverScreen, #helpScreen {
+    width: 95%;
+    max-width: 420px;
+    margin: 50px auto;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#introForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#playerName, #playerAge {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 7.5px;
+    font-size: 16px;
+}
+
+.colorPicker {
+    font-size: 16px;
+    color: #7a7a7a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+#playerColor {
+    width: 30%;
+    height: 40px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    appearance: none;
+}
+
+button {
+    padding: 12px 18px;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: linear-gradient(135deg, #578ece, #357ABD);
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    margin: 10px auto;
+    width: 65%;
+    max-width: 220px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #357ABD, #26568d);
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    background-color: #ccc;
+    color: #555555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#helpButton {
+    padding: 10px 16px;
+    font-size: 16px;
+    background: #ebb56a;
+    color: black;
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 12px auto;
+    width: 65%;
+    max-width: 220px;
+}
+
+#helpScreenText {
+    text-align: left;
+}
+
+.seperator {
+    width: 100%;
+    border: none;
+    height: 2px;
+    background-color: #ccc;
+    margin: 5px auto;
+}
+
+/* --- GAME BOARD --- */
+#gameBoard {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    gap: 8px;
+}
+
+.tile {
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.tile.small {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+}
+
+.tile.medium {
+    width: 95px;
+    height: 95px;
+    font-size: 22px;
+}
+
+.tile.large {
+    width: 120px;
+    height: 120px;
+    font-size: 26px;
+}
+
+.tile:hover {
+    transform: scale(1.03);
+}
+
+.tile:active {
+    transform: scale(0.95);
+}
+
+/* --- GAME OVER SCREEN --- */
+#gameOverScreen h1 {
+    font-size: 30px;
+}
+
+#gameOverScreen p {
+    font-size: 18px;
+}
+
+@keyframes shake {
+    0% {transform: translateX(-5px); }
+    25% {transform: translateX(5px); }
+    50% {transform: translateX(-5px); }
+    75% {transform: translateX(5px); }
+    100% {transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* --- MOBILE AND TABLET SCREENS --- */
+@media (max-width: 600px) {
+    #introScreen, #gameScreen, #gameOverScreen, #helpScreen {
+        width: 90%;
+        max-width: 80%;
+        padding: 15px;
+    }
+
+    .tile.small {
+        width: 70px;
+        height: 70px;
+        font-size: 18px;
+    }
+
+    .tile.medium {
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+    }
+
+    .tile.large {
+        width: 150px;
+        height: 150px;
+        font-size: 22px;
+    }
+
+    button, #helpButton {
+        width: 80%;
+        font-size: 15px;
+        padding: 10px 14px;
+    }
+
+    .gameInfoContainer {
+        width: 100%;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #playerName, #playerAge {
+        width: 80%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #playerColor {
+        width: 40%;
+        height: 35px;
+    }
+
+    .seperator {
+        margin: 10px auto;
+    }
+}
+
+/* --- SMALLER MOBILE SCREENS --- */
+@media (max-width: 375px) {
+    #playerInfo {
+        font-size: 16px;
+    }
+
+    .tile.small {
+        width: 60px;
+        height: 60px;
+        font-size: 16px;
+    }
+
+    .tile.medium {
+        width: 90px;
+        height: 90px;
+        font-size: 18px;
+    }
+
+    .tile.large {
+        width: 130px;
+        height: 130px;
+        font-size: 20px;
+    }
+
+    button, #helpButton {
+        font-size: 14px;
+        padding: 8px 12px;
+        width: 85%;
+    }
+}
